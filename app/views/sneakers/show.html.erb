@@ -1,0 +1,11 @@
+<h1><%= @sneaker.name %></h1>
+<%= sneaker_image @sneaker.image %>
+<h3><%= @sneaker.description %></h3>
+<span>Size:<%= @sneaker.size %></span>
+<br>
+<span>Price: <%= @sneaker.price%> $</span>
+<div class="">
+<% @sneaker.images.each do |image|%>
+  <%=image_tag image%>
+  <%end%>
+  </div>
