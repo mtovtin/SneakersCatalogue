@@ -1,5 +1,11 @@
 <h1> Результати пошуку за "<%=@search%>"</h1>
-<h5>Знайдено: <%=@sneakers.count%></h5>
+<h5>Кількість результатів
+  <%= @sneakers.count %></h5>
 <div class="row">
-<%=render @sneakers%>
-</div>
+  <div class="row" id="sneakers">
+
+    <%= render @neakers%>
+  </div>
+  <% if @count > $PER_PAGE%>
+    <%= render "paginations" %>
+  <%end%>

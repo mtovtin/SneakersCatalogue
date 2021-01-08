@@ -2,5 +2,10 @@
 <%= link_to sneaker_path(sneaker) do%>
     <%=sneaker_image (sneaker.image)%>
     <%=sneaker.name%>
+    <div class="">
+    <%sneaker.categories.each do |category|%>
+      <%= link_to category.name, category_path(category),class: "badge bg-secondary"%>
+    <%end%>
+  </div>
     <%end%>
     </div>

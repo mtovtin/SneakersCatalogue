@@ -5,10 +5,11 @@ ActiveAdmin.register Sneaker do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :size, :price, :image, images: []
+  permit_params :name, :description, :size, :price, :image, :category_names, images: []
   form do |f|
     f.inputs do
       f.input :name
+      f.input :category_names
       f.input :description, as: :text
       f.input :size
       f.input :price
@@ -33,6 +34,13 @@ ActiveAdmin.register Sneaker do
           span image_tag image
     end
   end
+  end
+  row :category_names
+end
+panel 'Categories' do
+  table_for sneaker.categories do
+    column :id
+    column { |c| link_to c.name, admin_category_path(c.id) }
   end
 end
     active_admin_comments
