@@ -5,7 +5,7 @@ ActiveAdmin.register Sneaker do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :size, :price, :image, :category_names, images: []
+  permit_params :name, :description, :size, :price, :image, :category_names, :avialability, images: []
   form do |f|
     f.inputs do
       f.input :name
@@ -13,6 +13,7 @@ ActiveAdmin.register Sneaker do
       f.input :description, as: :text
       f.input :size
       f.input :price
+      f.input :avialability
       f.input :image, as: :file
       f.input :images, as: :file, input_html: {multiple: true}
     end
@@ -25,6 +26,7 @@ ActiveAdmin.register Sneaker do
       row :description, as: :text
       row :size
       row :price
+      row :avialability
       row :image do |object|
         image_tag object.image
       end

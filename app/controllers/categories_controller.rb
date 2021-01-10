@@ -1,12 +1,20 @@
 class CategoriesController < ApplicationController
+  before_action :categories
     def index
-      @categories = Category.all
+    
     end
   
     def show
       @category = Category.find(params[:id])
       @sneakers = @category.sneakers
-      @count = @sneakers.count
-      @sneakers = @sneakers.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
+
+pagination
+respond_to do |format|
+  format.js
+  format.html
+end
+    end
+    def categories
+      @categories ||= Category.all
     end
   end

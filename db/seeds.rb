@@ -11,7 +11,9 @@ sneakers = []
   sneakers << {
     name: Faker::Name.initials,
     description: Faker::Name.last_name ,
-    set_image: 'https://picsum.photos/300'
+    set_image: 'https://picsum.photos/300',
+    
   }
 end
 Sneaker.create!(sneakers)
+Sneaker.limit(20).each{|x|x.update(category_names: '1')}

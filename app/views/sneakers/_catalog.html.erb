@@ -1,0 +1,27 @@
+<div class="catalog">
+
+<div class="row">
+<div class="col-12 col-md-2 col-lg-3">
+<% if @categories %>
+<ul>
+<% @categories.each do |category|%>
+  <% if @category && category.id==@category.id%>
+  <li><%=category.name%></li>
+  <%else%>
+  <li><%=render category%></li>
+  <%end%>
+  <%end%>
+  </ul>
+  <%end%>
+<%= select_tag :avialability, options_for_select([["A",true],["N/A",false]]), onchange:"change_avialability(this)", prompt:"Choose"%>
+</div>
+<div class="col-12 col-md-10 col-lg-9 row" id="sneakers">
+<%= render @sneakers%>
+</div>
+</div>
+
+<div id="paginations">
+<%= render "pages/paginations" %>
+</div>
+
+</div>

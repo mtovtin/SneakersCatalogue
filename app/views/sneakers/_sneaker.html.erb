@@ -1,7 +1,9 @@
 <div class="col-12 col-md-5 col-lg-4">
 <div class="card m-3">
 <%= link_to sneaker_path(sneaker) do%>
-    <%=sneaker_image (sneaker.image)%>
+  
+    <%=sneaker_image(sneaker.image,class_names:"card-img-top")%>
+    
     <div class="card-body">
     <%=sneaker.name%>
     <div class="">

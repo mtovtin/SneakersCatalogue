@@ -14,5 +14,6 @@ ActiveStorage.start()
 
 import "bootstrap"
 import "../stylesheets/application";
-import {pagination_js} from "./custom"
+import {pagination_js,change_avialability} from "./custom"
 window.pagination_js = pagination_js
+window.change_avialability=change_avialability
