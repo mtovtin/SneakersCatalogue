@@ -1,4 +1,5 @@
 class SneakersController < ApplicationController
+  before_action :categories, only: [:index,:search]
 
         def index
           @sneakers = Sneaker.all
@@ -7,7 +8,7 @@ class SneakersController < ApplicationController
         end
       
         def set_page
-          @sneakers= Sneakers.all
+          @sneakers= Sneaker.all
           @count = @sneakers.count
           @sneakers = @sneakers.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
           respond_to :js
@@ -22,5 +23,10 @@ class SneakersController < ApplicationController
           @sneakers = Sneaker.where("name LIKE '%#{params[:search]}%'").or(Sneaker.where("description LIKE '%#{params[:search]}%'"))
           @count = @sneakers.count
           @sneakers = @sneakers.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
+        end
+        private
+        def categories
+          @categories ||=Category.all
+        
         end
       end

@@ -1,8 +1,23 @@
+<div class="catalog">
 <h1>Каталог</h1>
 <div class="row">
-<div class="row" id="sneakers">
+<div class="col-12 col-md-2 col-lg-3">
+<% if @categories %>
+<ul>
+<% @categories.each do |category|%>
+  <li><%=render category%></li>
+  <%end%>
+  </ul>
+  <%end%>
+<%= select_tag :price %>
+</div>
+<div class="col-12 col-md-10 col-lg-9 row" id="sneakers">
 <%= render @sneakers%>
 </div>
+</div>
 <% if @count.to_i > $PER_PAGE%>
-  <%= render "paginations" %>
+<div id="paginations">
+<%= render "paginations" %>
+</div>
 <%end%>
+</div>

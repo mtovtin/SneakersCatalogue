@@ -1,11 +1,15 @@
-<div class="col-6">
+<div class="col-12 col-md-5 col-lg-4">
+<div class="card m-3">
 <%= link_to sneaker_path(sneaker) do%>
     <%=sneaker_image (sneaker.image)%>
+    <div class="card-body">
     <%=sneaker.name%>
     <div class="">
     <%sneaker.categories.each do |category|%>
       <%= link_to category.name, category_path(category),class: "badge bg-secondary"%>
     <%end%>
   </div>
+  </div>
     <%end%>
+    </div>
     </div>
