@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :categories
-    def index
+    def index;
     
     end
   

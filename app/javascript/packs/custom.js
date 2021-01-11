@@ -18,7 +18,7 @@ export function change_avialability(selector) {
   Rails.ajax({
     type: "GET",
     url: window.location.href,
-    data: "change_avialability="+selector.value,
+    data: "avialability="+selector.value,
     success: function(response){
       console.log("succses response")
     },
