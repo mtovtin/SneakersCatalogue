@@ -1,0 +1,10 @@
+uk:
+  time:
+    formats:
+      long: "%F AS %T%:z    "
+  navbar:
+    title: Flying Sneakers
+    catalog: Каталог
+    search:
+      placeholder: Пошук...
+      button: Знайти

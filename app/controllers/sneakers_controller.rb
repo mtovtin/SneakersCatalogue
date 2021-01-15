@@ -3,7 +3,7 @@ class SneakersController < ApplicationController
 
         def index
        
-          
+          search
           @avialability= params[:avialability]
           @sneakers=sneakers.where(avialability: @avialability) if params[:avialability]
           pagination

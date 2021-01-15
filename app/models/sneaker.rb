@@ -3,6 +3,12 @@ class Sneaker < ApplicationRecord
     has_many_attached :images
     has_many :category_sneakers
     has_many :categories, through: :category_sneakers
+    has_rich_text :description
+    has_one :action_text_rich_text,
+    as: :record
+
+scope :avialability_true, -> { where(avialability: true) }
+scope :avialability_false, -> { where(avialability: false) }
 
     def category_names=(names)
         category_sneakers.delete_all

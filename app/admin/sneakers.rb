@@ -6,11 +6,30 @@ ActiveAdmin.register Sneaker do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name, :description, :size, :price, :image, :category_names, :avialability, images: []
+  filter :name
+  filter :categories
+  filter :price
+  filter :created_at
+  filter :updated_at
+
+  scope 'Available', :avialability_true
+  scope 'N/A', :avialability_false
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :avialability
+    column :price
+    column :created_at
+    column :updated_at
+    actions
+  end
   form do |f|
     f.inputs do
       f.input :name
       f.input :category_names
-      f.input :description, as: :text
+      f.input :description, as: :trix_editor
       f.input :size
       f.input :price
       f.input :avialability
@@ -23,7 +42,11 @@ ActiveAdmin.register Sneaker do
   show do
     attributes_table do
       row :name
-      row :description, as: :text
+      row :description do
+        div do
+          sneaker.description
+        end
+      end
       row :size
       row :price
       row :avialability
