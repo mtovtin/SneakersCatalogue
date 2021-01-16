@@ -1,0 +1,4 @@
+<%= form_tag admin_sneakers_import_path, multipart: true, method: :post do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "import" %>
+    <% end %>

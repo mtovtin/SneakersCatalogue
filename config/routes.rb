@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   get :search, to: 'pages#search'
   devise_for :admin_users, ActiveAdmin::Devise.config
+  get '/admin/sneakers/import', to: 'admin/sneakers#import'
+   post '/admin/sneakers/import', to: 'admin/sneakers#import_file'
   ActiveAdmin.routes(self)
+  resource :call_me, only: [:create], controller: :call_me
 end

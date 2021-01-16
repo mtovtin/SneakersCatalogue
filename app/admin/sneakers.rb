@@ -15,6 +15,18 @@ ActiveAdmin.register Sneaker do
   scope 'Available', :avialability_true
   scope 'N/A', :avialability_false
 
+  action_item :import, except: :import do
+    link_to t('import'), admin_sneakers_import_path
+  end
+
+  controller do
+    def import; end
+
+    def import_file
+      Sneaker.import(params[:file])
+      redirect_to admin_sneakers_path
+    end
+  end
   index do
     selectable_column
     id_column
