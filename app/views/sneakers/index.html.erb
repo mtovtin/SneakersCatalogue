@@ -1,3 +1,3 @@
 
 <h1>Каталог</h1>
-<%=render "sneakers/catalog"%>
+<%= render CatalogComponent.new(sneakers: @sneakers, categories: @categories)%>

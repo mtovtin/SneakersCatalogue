@@ -1,5 +1,5 @@
 console.log("js work!")
 catalog = document.getElementById("sneakers")
-catalog.innerHTML = '<%=j render @sneakers%>'
+catalog.innerHTML = '<%=j render(SneakerComponent.with_collection(@sneakers))%>'
 pagination = document.getElementById("paginations")
 pagination.innerHTML= '<%=j render "pages/paginations" %>'

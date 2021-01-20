@@ -4,8 +4,10 @@ class SneakersController < ApplicationController
         def index
        
           search
-          @avialability= params[:avialability]
-          @sneakers=sneakers.where(avialability: @avialability) if params[:avialability]
+ 
+          unless (@avialability = params[:avialability]).blank?
+            @sneakers = sneakers.where(avialability: @avialability)
+          end
           pagination
           respond_to do |format| 
             format.js

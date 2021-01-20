@@ -21,9 +21,9 @@ def sneakers
   @sneakers||=Sneaker.all
 end
 def search
-  @search = params[:search]
-  # find_in_text
-  @sneakers = sneakers.where("lower(name) LIKE '%#{params[:search]&.downcase}%'")
+  if (@search = params[:search])
+    @sneakers = sneakers.where("lower(name) LIKE '%#{params[:search]&.downcase}%'")
+  end
 end
 def pagination
   @count = sneakers.count

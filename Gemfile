@@ -29,10 +29,11 @@ gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'activeadmin'
 gem 'rails-i18n'
-
+gem 'telegram-bot-ruby'
 gem 'trix'
 gem 'http_accept_language'
 gem 'roo', '~> 2.8.0'
+gem 'view_component', require: 'view_component/engine'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
